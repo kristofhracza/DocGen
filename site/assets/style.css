@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+
+:root {
+    --background-color: #14171C;
+    --contrast-from-background: #181d25;
+    --contrast-from-background-light: #393939;
+    --code-background: #22272E;
+    --theme-color: #00a6ff;
+    --menu-color:#cfcfcf;
+    --universal-padding: 10px;
+    --universal-padding: 5px;
+    --list-padding:2px 2px 5px 10px;
+}
+
+body,html {
+    width: 90%;
+    margin: 20px;
+    color:white;
+    font-family: "Roboto Mono";
+    background-color: var(--background-color);
+}
+
+h1,h2,h3,h4,h5,h6{
+    color: white;
+    font-family: "Rubik";
+    font-weight:bold;
+}
+
+h3,h4,h5,h6{
+    font-weight:600;
+}
+
+p,li,ol,ul,#text {
+    color:white;
+    letter-spacing: -1px;
+    font-family: "Roboto Mono";
+}
+
+a{
+    color:var(--theme-color);
+    letter-spacing: -1px;
+    font-family: "Roboto Mono";
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+a:hover{
+    text-decoration: underline;
+    color:#008fdb;
+}
+
+table {
+    border-collapse: collapse;
+    width: fit-content;
+    padding: var(--universal-padding);
+    margin: var(--universal-margin);
+}
+  
+th,td{
+    background-color: var(--contrast-from-background);
+    text-align: left;
+    color: white;
+    padding: 15px;
+    font-family: "Roboto Mono";
+    border: 1px solid  var(--contrast-from-background-light);
+}
+
+ul {
+    margin: 5px;
+    padding: var(--list-padding);
+}
+li {
+    padding: 3px;
+    transition: 0.2s;
+    color: whitesmoke;
+    padding: var(--list-padding);
+    border-radius: 2px;
+}
+
+:not(pre) > code {
+    background: var(--code-background);
+    padding: 2px 5px 2px 5px;
+    font-family: "Roboto Mono";
+    font-size: medium;
+}
+
+pre{
+    background: var(--code-background);
+    border: none;
+    border-left: 3px solid var(--theme-color);
+    color: white;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 60%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+    tab-size: 4;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+    height:7.5px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: var(--code-background);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--theme-color);
+}
+
+.page,iframe{ 
+    width: 85%;
+    height:100%;
+    border:none;
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    transition: 0.2s;
+}
+
+.sidebar {
+    width: 15%; 
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--code-background);
+    transition: 0.2s;
+}
+
+.sidebar li{
+    display: block;
+}
+
+.sidebar li:hover {
+    background-color: var(--theme-color);
+    cursor: pointer;
+}
+
+.hamburger {
+    z-index: 15;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 5;
+    display: none;
+}
+
+.hamburger div {
+    z-index: 10;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.hamburger i{
+    font-size: 40px;
+}
+
+@media (max-width: 800px) {
+    body{
+        width: 95%;
+    }
+    .page, iframe {
+        width: 100%;
+        height: 100%;
+    }
+    .sidebar {
+        padding-top: 35px;
+        width:100%;
+        height: fit-content;
+        display: none;
+    }
+    .hamburger {
+        display:  block;
+    }
+    h1,h2,h3,h4,h5,h6{
+        font-size: 20px;
+    }
+    p,li,ol,ul,#text {
+        font-size: 12px;
+    }
+    pre {
+        font-size: 12px;
+        max-width: 90%;
+    }
+    table {
+        width: fit-content;
+    }
+    th,td{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1024px) {
+    body{
+        width: 95%;
+    }
+    .page, iframe {
+        width: 100%;
+        height: 100%;
+    }
+    .sidebar {
+        padding-top: 35px;
+        width:100%;
+        height: fit-content;
+        display: none;
+    }
+    .hamburger {
+        display:  block;
+    }
+    h1,h2,h3,h4,h5,h6{
+        font-size: 25px;
+    }
+
+    p,li,ol,ul,#text {
+        font-size: 15px;
+    }
+    pre {
+        font-size: 15px;
+        max-width: 90%;
+    }
+    table {
+        width: fit-content;
+    }
+    th,td{
+        font-size: 15px;
+    }
+}
