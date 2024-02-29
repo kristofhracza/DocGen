@@ -69,5 +69,16 @@ window.onload = () => {
         sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
         sidebar.style.width = sidebar.style.width == "75%" ? "0" : "75%"
         icon.className = icon.className == "fa fa-bars" ? "fa fa-times" : "fa fa-bars"
+
+        // Fetch chosen page, then close menu
+        if (icon.className == "fa fa-times") {
+            document.querySelectorAll(".header").forEach(header => {
+                header.onclick = () => {
+                    document.querySelector("#page-render").src = header.dataset.ref;
+                    sidebar.style.display = "none";
+                    sidebar.style.width = "0%"
+                }
+            });
+        }
     }
 }
