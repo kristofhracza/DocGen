@@ -1,5 +1,6 @@
 "use-strict"
 
+// Function to make list entries
 const makeEntry = (url, text, isMain) => {
     const newText = document.createElement("li");
     newText.textContent = text;
@@ -9,10 +10,12 @@ const makeEntry = (url, text, isMain) => {
         document.title = "DocGen " + text;
         localStorage.setItem("lastPage",url)
     }
-
+    if (isMain) newText.className = "main-header";
+    else newText.className = "header";
     return newText;
 }
 
+// Duties on page load
 window.onload = () => {
     let sideBar = document.getElementsByClassName("sidebar")[0];
 
@@ -21,6 +24,7 @@ window.onload = () => {
         fetch("../LINKS.json")
         .then(response => response.json())
         .then(json => {
+            // Loop raw JSON data
             for (const tree in json) {
                 let link = json[tree];
                 let structure = tree.split("/");
@@ -35,11 +39,8 @@ window.onload = () => {
                     // Check for existence
                     subList = Array.from(list.querySelectorAll("ul")).find(ul => ul.id === currentID);
 
-                    console.log(currentText,(currentText === currentID));
-
+                    // Checks and list creation
                     if (currentText === "MAIN") continue;
-
-
                     if (!subList) {
                         let isMain = (currentText === currentID && currentText !== "README");
                         subList = document.createElement("ul");
@@ -65,11 +66,10 @@ window.onload = () => {
     // Trigger menu
     const hamburger = document.getElementsByClassName("hamburger")[0];
     const sidebar = document.getElementsByClassName("sidebar")[0];
-    const iframe = document.getElementById("page-render");
     const icon = document.getElementsByTagName("i")[0]; // Assuming the first `i` is the icon
     hamburger.onclick = () => {
         sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
-        iframe.style.display = sidebar.style.display === "none" ? "block" : "none";
+        sidebar.style.width = sidebar.style.width == "75%" ? "0" : "75%"
         icon.className = icon.className == "fa fa-bars" ? "fa fa-times" : "fa fa-bars"
     }
 }
