@@ -6,7 +6,7 @@ const makeEntry = (url, text, isMain) => {
     newText.textContent = text;
     newText.dataset.ref = url;
     if (isMain === false) newText.onclick = () => {
-        document.getElementById("page-render").src = url;
+        document.querySelector("#page-render").src = url
         document.title = "DocGen " + text;
         localStorage.setItem("lastPage",url)
     }
@@ -17,7 +17,7 @@ const makeEntry = (url, text, isMain) => {
 
 // Duties on page load
 window.onload = () => {
-    let sideBar = document.getElementsByClassName("sidebar")[0];
+    let sideBar = document.querySelector(".sidebar");
 
     // Handle JSON data of existing pages
     const parseJsonLinks = () => {
@@ -35,8 +35,6 @@ window.onload = () => {
                 for (let i = 0; i < structure.length; i++) {
                     let currentText = structure[i];
                     let currentID = structure.slice(0, i + 1).join("-");
-
-                    // Check for existence
                     subList = Array.from(list.querySelectorAll("ul")).find(ul => ul.id === currentID);
 
                     // Checks and list creation
@@ -60,13 +58,13 @@ window.onload = () => {
     // Set page to last visited url
     let lastPage = localStorage.getItem("lastPage");
     if (lastPage){
-        document.getElementById("page-render").src = lastPage;
+        document.querySelector("#page-render").src = lastPage;
     }
 
     // Trigger menu
-    const hamburger = document.getElementsByClassName("hamburger")[0];
-    const sidebar = document.getElementsByClassName("sidebar")[0];
-    const icon = document.getElementsByTagName("i")[0]; // Assuming the first `i` is the icon
+    const hamburger = document.querySelector(".hamburger");
+    const sidebar = document.querySelector(".sidebar")
+    const icon = document.querySelector("i")
     hamburger.onclick = () => {
         sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
         sidebar.style.width = sidebar.style.width == "75%" ? "0" : "75%"
