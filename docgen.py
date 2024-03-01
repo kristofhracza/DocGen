@@ -6,9 +6,9 @@ load_dotenv()
 PUBLIC_FOLDER = os.getenv("PUBLIC_FOLDER")
 # Edit this if you need more
 ASSESTS = '''
-<link rel="stylesheet" href="{0}assets/style.css">
-<link rel="stylesheet" href="{0}assets/prism.css">
-<script type="text/javascript" src="{0}assets/prism.js"></script>
+<link rel="stylesheet" href="{0}assets/css/style.css">
+<link rel="stylesheet" href="{0}assets/css/prism.css">
+<script type="text/javascript" src="{0}assets/js/prism.js"></script>
 '''
 
 # All operations that are needed for file conversion and structuring
