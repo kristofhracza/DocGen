@@ -69,7 +69,7 @@ ul {
     margin: 5px;
     padding: var(--list-padding);
 }
-li {
+li, .main-list {
     padding: 3px;
     transition: 0.2s;
     color: whitesmoke;
@@ -140,12 +140,12 @@ pre{
     transition: 0.2s;
 }
 
-.sidebar li{
+.sidebar li,.main-list{
     padding: 5px;
     display: block;
 }
 
-.sidebar li:hover {
+.sidebar li:hover, .main-list:hover {
     background-color: var(--theme-color);
     cursor: pointer;
 }
