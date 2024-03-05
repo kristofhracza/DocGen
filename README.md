@@ -33,6 +33,7 @@ In this file you will write the structure of your files.
 {
     "README":"md/README.md",
     "First":{
+        "MAIN":"some/path/to/md/file",
         "Sub-heading":{
             "MAIN":"some/path/to/md/file",
         },
@@ -51,31 +52,7 @@ The example above would produce following structure:
     - Feature one
     - Feature two
 
-The entries labeled as `MAIN` should be files that describe the sub-heading.      
-For example a sub-heading called *Intro* will have a `MAIN` as opposed to adding another entry below it that would hold the content for *Intro*          
-For top-level headings such as `First` or `Second` there cannot be a `MAIN`, they would have to be added to a sublist.
-
-**WRONG WAY**
-```json
-{
-    "Second":{
-        "MAIN":"some/path/to/md/file",
-    }
-}
-```
-
-**RIGHT WAY**
-```json
-{
-    "Second":{
-        "Sub-heading": {
-            "MAIN":"some/path/to/md/file",
-        }
-    }
-}
-```
-*Yes, this is more of a bug than a feature, but it can be worked on later*
-
+The entries labeled as `MAIN` should be files that describe the sub-header.      
 
 ## PUBLIC_FOLDER structure
 Any file that is in the `PUBLIC_FOLDER` directory has a purpose.
