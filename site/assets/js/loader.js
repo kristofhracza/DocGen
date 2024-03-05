@@ -11,10 +11,12 @@ const hamburger = () => {
 
         if (icon.className == "fa fa-times") {
             document.querySelectorAll(".header").forEach(header => {
+                console.log("GECI",sidebar.style.display);
                 header.onclick = () => {
                     document.querySelector("#page-render").src = header.dataset.ref;
                     sidebar.style.display = "none";
                     sidebar.style.width = "0%"
+                    icon.className = "fa fa-bars";
                 }
             });
         }

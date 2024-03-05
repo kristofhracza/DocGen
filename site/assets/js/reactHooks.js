@@ -9,7 +9,7 @@ const listClick = (url,text) => (event) => {
 const renderSummary = (summary) => {
     return (
         Object.entries(summary).map(([head, link]) => (
-            <ul head={head}>
+            <ul id={head} className="header">
                 {typeof link === "object" ? (
                 <>
                     {(Object.keys(link)[0] === "MAIN") ? (

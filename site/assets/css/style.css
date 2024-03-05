@@ -186,13 +186,13 @@ pre{
     .sidebar {
         padding-top: 35px;
         width:0px;
-        height: fit-content;
+        height: 100%;
         display: none;
     }
     .hamburger {
         display:  block;
     }
-    h1,h2,h3,h4,h5,h6{
+    h1,h2,h3,h4,h5{
         font-size: 20px;
     }
     p,li,ol,ul,#text {
@@ -221,13 +221,13 @@ pre{
     .sidebar {
         padding-top: 35px;
         width:0px;
-        height: fit-content;
+        height: 100%;
         display: none;
     }
     .hamburger {
         display:  block;
     }
-    h1,h2,h3,h4,h5,h6{
+    h1,h2,h3,h4,h5{
         font-size: 25px;
     }
 
