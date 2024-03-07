@@ -1,5 +1,5 @@
 const listClick = (url,text) => (event) => {
-    document.title = "DocGen - " + text;
+    document.title = `DocGen - ${text}`;
     document.querySelector("#page-render").src = url
     localStorage.setItem("lastPage",url)
 }
@@ -20,14 +20,14 @@ const renderSummary = (summary) => {
                         ) :
                         (
                         <>
-                            <h6 id={head}>{head}</h6>
+                            <span className="main-header" id={head}>{head}</span>
                             {renderSummary(link)}
                         </>
                         )}
                     </>
                 ) : (
                     <>
-                        <li data-ref={link} onClick={listClick(link,head)}>{head}</li>
+                        <li data-ref={link} className="side-list" onClick={listClick(link,head)}>{head}</li>
                     </>
                 )}
             </ul>

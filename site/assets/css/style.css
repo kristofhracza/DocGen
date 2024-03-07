@@ -3,50 +3,50 @@
 
 :root {
     --background-color: #14171C;
-    --contrast-from-background: #181d25;
-    --contrast-from-background-light: #393939;
     --code-background: #22272E;
-    --theme-color: #00a6ff;
+    --theme-color: #77ff00;
     --menu-color:#cfcfcf;
     --universal-padding: 10px;
     --universal-padding: 5px;
-    --list-padding:2px 2px 5px 10px;
+    --list-padding:1px 2px 1px 10px;
 }
 
 body,html {
     width: 90%;
-    margin: 10px;
+    margin-left: 10px;
     color:white;
     font-family: "Inter";
     background-color: var(--background-color);
     overflow-wrap: break-word;
 }
 
+/* Body of index.html */
+.main-html,.main-body{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    margin-left: 0;
+    box-sizing: border-box;
+}
+
 h1,h2,h3,h4,h5,h6{
-    color: white;
     font-family: "Rubik";
-    font-weight:bold;
 }
 
-h3,h4,h5,h6{
-    font-weight:600;
-}
-
-p,li,ol,ul,#text {
-    color:white;
+p,li,ol,ul,#text,a {
+    font-size: 15px;
     font-family: "Inter";
 }
 
 a{
     color:var(--theme-color);
-    font-family: "Inter";
     text-decoration: none;
-    transition: 0.5s;
+    transition: 0.1s;
 }
 
 a:hover{
     text-decoration: underline;
-    color:#008fdb;
+    font-weight: bolder;
 }
 
 table {
@@ -69,8 +69,9 @@ ul {
     margin: 5px;
     padding: var(--list-padding);
 }
-li, .main-list {
-    padding: 3px;
+
+.side-list {
+    font-size: 13px;
     transition: 0.2s;
     color: whitesmoke;
     padding: var(--list-padding);
@@ -81,13 +82,11 @@ li, .main-list {
     background: var(--code-background);
     padding: 2px 5px 2px 5px;
     font-family: "Inter";
-    font-size: medium;
 }
 
 pre{
     background: var(--code-background);
     border: none;
-    border-left: 3px solid var(--theme-color);
     color: white;
     page-break-inside: avoid;
     font-family: monospace;
@@ -102,8 +101,14 @@ pre{
     tab-size: 4;
 }
 
+*{
+    scrollbar-width: 15px;
+    scrollbar-face-color: grey; 
+    scrollbar-shadow-color: var(--code-background); 
+}
+
 *::-webkit-scrollbar {
-    width: 10px;
+    width: 15px;
     height:7.5px;
 }
 
@@ -112,30 +117,35 @@ pre{
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--theme-color);
+    background-color: grey;
 }
 
-.main-header{
+.main-header,.main-list{
+    font-size: 15px;
     font-weight: 600;
 }
 
-.page,iframe{ 
+#main {
+    display: flex;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.iframe-container {
+    flex-grow: 1;
     width: 85%;
-    height:100%;
-    border:none;
-    position: absolute; 
-    top: 0; 
-    right: 0; 
-    transition: 0.2s;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 .sidebar {
-    z-index: 1;
-    width: 15%; 
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    z-index: 10;
+    width:15%;
     background-color: var(--code-background);
     transition: 0.2s;
 }
@@ -146,7 +156,7 @@ pre{
 }
 
 .sidebar li:hover, .main-list:hover {
-    background-color: var(--theme-color);
+    backdrop-filter: brightness(150%);
     cursor: pointer;
 }
 
@@ -155,93 +165,26 @@ pre{
     position: fixed;
     top: 10px;
     right: 20px;
+    font-size: 25px;
     cursor: pointer;
-    z-index: 5;
     display: none;
-}
-
-.hamburger div {
-    z-index: 10;
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    margin: 6px 0;
-    transition: 0.4s;
-}
-
-.hamburger i{
-    font-size: 40px;
-}
-
-@media (max-width: 800px) {
-    body{
-        width: 95%;
-        height: fit-content;
-    }
-    .page, iframe {
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
-    .sidebar {
-        padding-top: 35px;
-        width:0px;
-        height: 100%;
-        display: none;
-    }
-    .hamburger {
-        display:  block;
-    }
-    h1,h2,h3,h4,h5{
-        font-size: 20px;
-    }
-    p,li,ol,ul,#text {
-        font-size: 12px;
-    }
-    pre {
-        font-size: 12px;
-        max-width: 90%;
-    }
-    table {
-        width: fit-content;
-    }
-    th,td{
-        font-size: 12px;
-    }
 }
 
 @media (max-width: 1024px) {
     body{
-        width: 95%;
-    }
-    .page, iframe {
         width: 100%;
-        height: 100%;
+    }
+    pre {
+        font-size: 12px;
+        max-width: 100%;
     }
     .sidebar {
-        padding-top: 35px;
-        width:0px;
-        height: 100%;
+        background-color: var(--background-color);
+        width:75%;
+        padding-top: 25px;
         display: none;
     }
     .hamburger {
         display:  block;
-    }
-    h1,h2,h3,h4,h5{
-        font-size: 25px;
-    }
-
-    p,li,ol,ul,#text {
-        font-size: 15px;
-    }
-    pre {
-        font-size: 15px;
-        max-width: 90%;
-    }
-    table {
-        width: fit-content;
-    }
-    th,td{
-        font-size: 15px;
     }
 }

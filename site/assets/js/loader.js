@@ -3,22 +3,33 @@
 const hamburger = () => {
     const hamburger = document.querySelector(".hamburger");
     const sidebar = document.querySelector(".sidebar")
+    const iframe = document.querySelector(".iframe-container");
     const icon = document.querySelector("i")
-    hamburger.onclick = () => {
-        sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
-        sidebar.style.width = sidebar.style.width == "75%" ? "0" : "75%"
-        icon.className = icon.className == "fa fa-bars" ? "fa fa-times" : "fa fa-bars"
 
+    // Looks weird, but --> DRY
+    const OFF = () =>{
+        iframe.style.filter = "brightness(100%)";
+        sidebar.style.display = "none";
+        icon.className = "fa fa-bars"
+    }
+    const ON = () => {
+        iframe.style.filter = "brightness(50%)";
+        sidebar.style.display = "block";
+        icon.className = "fa fa-times"
+    }
+
+    hamburger.onclick = () => {
         if (icon.className == "fa fa-times") {
+            OFF();
             document.querySelectorAll(".header").forEach(header => {
-                console.log("GECI",sidebar.style.display);
                 header.onclick = () => {
+                    OFF();
                     document.querySelector("#page-render").src = header.dataset.ref;
-                    sidebar.style.display = "none";
-                    sidebar.style.width = "0%"
-                    icon.className = "fa fa-bars";
                 }
             });
+        }
+        else if (icon.className == "fa fa-bars") {
+            ON();
         }
     }
 }
