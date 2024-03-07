@@ -4,6 +4,8 @@ The poor man's documentation platform
 ## What is this?
 DocGen converts MD files to HTML whilst placing them into an environment that is suitable for web hosting.
 
+![Demo image](screenshot.png)
+
 ## Setup
 First, you're going to have to edit the `PUBLIC_FOLDER` variable in `.env` *(unless you're happy with the default name)*.
 This will be your main folder for the website
